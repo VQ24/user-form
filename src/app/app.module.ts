@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
+import { userReducer } from './user.reducer';
 
 import { AppComponent } from './app.component';
 
@@ -10,7 +13,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    StoreModule.forRoot({userData: userReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

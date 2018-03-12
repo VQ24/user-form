@@ -1,20 +1,57 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+<div class = "container">
+
+  <h3>
+    Input user data
+  </h3>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="first_name"  type="text" class="validate" [(ngModel)] = "firstName">
+      <label for="first_name" >First name</label>
+      <p class = "red-alert">{{errMessage[0]}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="last_name" type="text" class="validate" [(ngModel)] = "lastName">
+      <label for="last_name" >Last name</label>
+      <p class = "red-alert">{{errMessage[1]}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="email" type="email" class="validate" [(ngModel)] = "email">
+      <label for="email" >E-mail</label>
+      <p class = "red-alert">{{errMessage[2]}}</p>
+    </div>
+  </div>
+
+  <a class="waves-effect waves-light btn" (click) = "onSubmit()">
+    <i class="material-icons right">check</i>Submit</a>
+
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
+
+<div [class.invisible] = "!users.length" class = "container">
+
+<ul class="collapsible" data-collapsible="accordion">
+	<li *ngFor = "let u of users">
+	    <div class="collapsible-header">
+	      <i class="large material-icons">person</i>
+	      <p>{{u.firstName | titlecase}} {{u.lastName | titlecase}}</p>
+	      <span class="badge">
+	       <a class="btn-floating waves-effect waves-light red btn-flat " (click) = "removeUser(u)">
+	       	<i class="large material-icons">close</i>
+	       </a>
+	      </span>
+	  	</div>
+	    <div class="collapsible-body">
+        <p>First name: <b>{{u.firstName | titlecase}}</b><br> 
+           Last name: <b>{{u.lastName | titlecase}}</b><br>
+           E-mail: <b>{{u.email}}</b></p>
+      </div>		
+	</li>
+
 </ul>
 
+</div>

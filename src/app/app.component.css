@@ -1,0 +1,24 @@
+.container {
+	margin: 20px;
+}
+.btn-floating{
+	width:20px;
+	height: 20px;
+	margin: 0px;
+	line-height: 20px;
+
+}
+.btn-floating i {
+	font-size: 20px;
+	width: 6px;
+	line-height: 20px;
+}
+.invisible{
+	display: none;
+}
+.red-alert{
+	color:red;
+	margin: 0px;
+	font-size: 14px;
+	font-weight: bold;	
+}
